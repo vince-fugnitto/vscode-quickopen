@@ -11,6 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.executeCommand('workbench.action.quickOpen');
     }));
 
+    disposables.push(vscode.commands.registerCommand('vscode-quickopen.invalid-prefix', () => {
+        vscode.commands.executeCommand('workbench.action.quickOpen', true);
+    }));
+
     context.subscriptions.push(...disposables);
 }
 
